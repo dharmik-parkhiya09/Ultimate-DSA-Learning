@@ -4,19 +4,6 @@ import java.util.*;
 
 public class NumberSystem {
 
-    public static void main(String[] args) {
-        // Demonstration of various functions
-        System.out.println("--- Java Number Logic Examples ---");
-        System.out.println("Is 121 Palindrome? " + isPalindrome(121));
-        System.out.println("Primes between 10 and 30: " + getPrimesInRange(10, 30));
-        System.out.println("Is 153 Armstrong? " + isArmstrong(153));
-        System.out.println("Is 28 Perfect? " + isPerfect(28));
-        System.out.println("GCD of 48 and 18: " + gcd(48, 18));
-        System.out.println("LCM of 48 and 18: " + lcm(48, 18));
-        System.out.println("Roots of x^2 - 5x + 6 = 0: ");
-        solveQuadratic(1, -5, 6);
-    }
-
     // 1. Check if a number is palindrome or not
     public static boolean isPalindrome(int num) {
         if (num < 0) return false;
@@ -302,6 +289,58 @@ public class NumberSystem {
             double imaginaryPart = Math.sqrt(-discriminant) / (2 * a);
             System.out.println("Complex Roots: " + realPart + " + " + imaginaryPart + "i and " + realPart + " - " + imaginaryPart + "i");
         }
+    }
+
+    // 37 -> Neon Number
+    public static boolean isNeonNumber(int n){
+        if (n <= 1){
+            return true;
+        }
+
+        int sum = 0;
+
+        int square = n * n;
+        while(square > 0){
+            sum +=  square % 10;
+            square /= 10;
+        }
+
+        if (sum == n){
+            return true;
+        }
+        return false;
+    }
+
+    // 38 ->  spy number
+    public static boolean isSpyNumber(int num) {
+        int sum = 0;
+        int product = 1;
+
+        while (num > 0) {
+            int digit = num % 10;
+            sum += digit;
+            product *= digit;
+            num /= 10;
+        }
+
+        return sum == product;
+    }
+
+    public static void main(String[] args) {
+        // Demonstration of various functions
+        System.out.println("--- Java Number Logic Examples ---");
+        System.out.println("Is 121 Palindrome? " + isPalindrome(121));
+        System.out.println("Primes between 10 and 30: " + getPrimesInRange(10, 30));
+        System.out.println("Is 153 Armstrong? " + isArmstrong(153));
+        System.out.println("Is 28 Perfect? " + isPerfect(28));
+        System.out.println("GCD of 48 and 18: " + gcd(48, 18));
+        System.out.println("LCM of 48 and 18: " + lcm(48, 18));
+        System.out.println("Roots of x^2 - 5x + 6 = 0: ");
+        solveQuadratic(1, -5, 6);
+
+        System.out.println( " is Neon number " + isNeonNumber(11));
+        System.out.println( " is Spy number " + isSpyNumber(15));
+
     }
 }
 
