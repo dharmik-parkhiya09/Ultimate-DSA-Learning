@@ -93,7 +93,7 @@ public class StringQuestion {
         return str.toString();
     }
 
-    // sum of number in string
+    // sum of number present in a string in string
     public static int sumOfNumber(String s) {
         if (s == null || s.isEmpty()) {
             return 0;
